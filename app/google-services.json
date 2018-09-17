@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "848052390602",
+    "firebase_url": "https://machine-learning-tests-7d6fd.firebaseio.com",
+    "project_id": "machine-learning-tests-7d6fd",
+    "storage_bucket": "machine-learning-tests-7d6fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848052390602:android:908ac5ea660d182c",
+        "android_client_info": {
+          "package_name": "com.assistiveapps.machinelearningtests"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848052390602-65e08n002b98mvj0b8l43n71mlg8gm7h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIY4sQ2YGRn0--X8OBa4BG258BEXSqtaI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
