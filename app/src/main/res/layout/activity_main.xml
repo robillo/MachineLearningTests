@@ -51,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12sp"
-                    android:layout_marginBottom="12sp"
+                    android:layout_marginBottom="22sp"
                     android:layout_marginLeft="20sp"
                     android:layout_marginRight="20sp"
                     app:cardCornerRadius="15sp"
@@ -76,11 +76,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="150sp"
-                    android:layout_marginTop="10sp"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
                     android:layout_marginBottom="10sp"
-                    app:cardElevation="5sp"
+                    app:cardElevation="2sp"
                     android:id="@+id/face_detection_card">
 
                     <FrameLayout
@@ -113,11 +112,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="150sp"
-                    android:layout_marginTop="10sp"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
                     android:layout_marginBottom="10sp"
-                    app:cardElevation="5sp"
+                    app:cardElevation="2sp"
                     android:id="@+id/barcode_scanning_card">
 
                     <FrameLayout
@@ -150,11 +148,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="150sp"
-                    android:layout_marginTop="10sp"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
                     android:layout_marginBottom="10sp"
-                    app:cardElevation="5sp"
+                    app:cardElevation="2sp"
                     android:id="@+id/text_scanning_card">
 
                     <FrameLayout
@@ -187,11 +184,10 @@
                 <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="150sp"
-                    android:layout_marginTop="10sp"
                     android:layout_marginLeft="10sp"
                     android:layout_marginRight="10sp"
                     android:layout_marginBottom="10sp"
-                    app:cardElevation="5sp"
+                    app:cardElevation="2sp"
                     android:id="@+id/image_label_generator_card">
 
                     <FrameLayout
