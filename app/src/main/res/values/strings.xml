@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Machine Learning Tests</string>
+    <string name="machine_learning_tests">MACHINE LEARNING TESTS</string>
+    <string name="choose_a_test_category">CHOOSE A TEST CATEGORY</string>
+    <string name="face_detection">FACE DETECTION</string>
+    <string name="image_label_generator">IMAGE LABEL GENERATOR</string>
+    <string name="text_scanning">TEXT SCANNING</string>
+    <string name="barcode_scanning">BARCODE SCANNING</string>
 </resources>
