@@ -11,6 +11,23 @@
     <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#FF3D00</color>
 
+    <color name="green_shade_one">#1E4000</color>
+    <color name="green_shade_two">#3C7F00</color>
+    <color name="green_shade_three">#5ABF00</color>
+    <color name="green_shade_three_whiter">#5ABF00</color>
+    <color name="green_shade_three_tx">#ac5abf00</color>
+    <color name="green_shade_four">#77FF00</color>
+    <color name="green_shade_three_tx_tx">#3c5abf00</color>
+
+    <color name="red_shade_one">#400007</color>
+    <color name="red_shade_two">#7F000D</color>
+    <color name="red_shade_three">#FF4C5C</color>
+    <color name="red_shade_three_less_vibrant">#d94f5b</color>
+    <color name="red_shade_four">#FF7B86</color>
+    <color name="red_shade_four_tx">#94ff7b86</color>
+    <color name="red_shade_five">#fff5f6</color>
+    <color name="red_shade_six">#ffa7af</color>
+
     <color name="colorMajor">#00BCD4</color>
     <color name="colorMajorDark">#0083BF</color>
     <color name="colorMajorDarkLighter">#0194d7</color>

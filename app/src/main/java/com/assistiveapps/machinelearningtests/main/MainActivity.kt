@@ -1,4 +1,4 @@
-package com.assistiveapps.machinelearningtests
+package com.assistiveapps.machinelearningtests.main
 
 import android.content.Context
 import android.os.Build
@@ -6,9 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import com.assistiveapps.machinelearningtests.R
 import io.github.inflationx.viewpump.ViewPumpContextWrapper
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         setClickListeners()
     }
 
-    fun setClickListeners() {
+    override fun setClickListeners() {
 
     }
 
-    fun initialize() {
+    override fun initialize() {
 
     }
 
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 
-    fun changeStatusBarColor() {
+    override fun changeStatusBarColor() {
         val window = window ?: return
         val view = window.decorView ?: return
         var flags = view.systemUiVisibility
