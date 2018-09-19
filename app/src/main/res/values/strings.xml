@@ -7,6 +7,7 @@
     <string name="text_scanning">TEXT SCANNING</string>
     <string name="barcode_scanning">BARCODE SCANNING</string>
 
+    <string name="tag_bottom_sheet">BOTTOM_SHEET</string>
     <string name="please_show_image">No image is selected. Please select an image first.</string>
     <string name="please_try_again">It seems like an error has occurred. Please try again.</string>
     <string name="null_photo_error">Oops. Null photo path.</string>

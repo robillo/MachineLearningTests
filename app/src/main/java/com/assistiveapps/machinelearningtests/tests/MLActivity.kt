@@ -10,6 +10,8 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.graphics.Palette
@@ -26,7 +28,7 @@ import java.util.Date
 
 import kotlinx.android.synthetic.main.common_test_ui.*
 
-abstract class MLActivity : Activity(), MLInterface {
+abstract class MLActivity : FragmentActivity(), MLInterface {
 
     val REQUEST_CODE_CAPTURE_IMAGE = 102
     val CHOOSER_INTENT_TITLE = "Select Image"
@@ -48,10 +50,6 @@ abstract class MLActivity : Activity(), MLInterface {
         select_image_from_gallery.setOnClickListener { openGalleryForImageSelect() }
         capture_image.setOnClickListener { openCameraForImageSelect() }
         done_button.setOnClickListener { processImage() }
-    }
-
-    override fun setup() {
-        HEADER_TEXT_SCAN = "TEMP"
     }
 
     override fun openGalleryForImageSelect() {

@@ -23,6 +23,16 @@
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
             android:value="barcode,text,face,label" />
 
+        <provider
+            android:name=".GenericFileProvider"
+            android:authorities="com.assistiveapps.machinelearningtests.GenericFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
         <activity
             android:name=".main.MainActivity"
             android:screenOrientation="portrait"
