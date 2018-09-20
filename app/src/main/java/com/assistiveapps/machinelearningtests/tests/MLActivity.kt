@@ -1,22 +1,24 @@
 package com.assistiveapps.machinelearningtests.tests
 
+import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
+import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.FileProvider
 import android.support.v7.graphics.Palette
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 
 import com.assistiveapps.machinelearningtests.R
 
@@ -48,7 +50,18 @@ abstract class MLActivity : FragmentActivity(), MLInterface {
         crop_image.setOnClickListener { setCropImage() }
         image_to_work_on.setOnClickListener {  }
         select_image_from_gallery.setOnClickListener { openGalleryForImageSelect() }
-        capture_image.setOnClickListener { openCameraForImageSelect() }
+        capture_image.setOnClickListener { it ->
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if(checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(Array(1) {Manifest.permission.CAMERA}, 100)
+                }
+                else {
+                    openCameraForImageSelect()
+                }
+            } else {
+                openCameraForImageSelect()
+            }
+        }
         done_button.setOnClickListener { processImage() }
     }
 
@@ -77,15 +90,11 @@ abstract class MLActivity : FragmentActivity(), MLInterface {
                 return
             }
 
-            if (pictureFile != null) {
-                val photoURI = FileProvider.getUriForFile(this,
-                        "com.appbusters.robinkamboj.senseitall.view.test_activity.other_files.GenericFileProvider",
-                        pictureFile)
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
-                startActivityForResult(cameraIntent, REQUEST_CODE_CAPTURE_IMAGE)
-            } else {
-                showCoordinator(getString(R.string.null_photo_error))
-            }
+            val photoURI = FileProvider.getUriForFile(this,
+                    "com.assistiveapps.machinelearningtests.GenericFileProvider",
+                    pictureFile)
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+            startActivityForResult(cameraIntent, REQUEST_CODE_CAPTURE_IMAGE)
         }
     }
 
@@ -128,6 +137,18 @@ abstract class MLActivity : FragmentActivity(), MLInterface {
             } else {
                 showCoordinator(getString(R.string.null_photo_error))
             }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (requestCode == 100) {
+
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openCameraForImageSelect()
+                Toast.makeText(this, "camera permission granted", Toast.LENGTH_SHORT).show()
+            }
+            else
+                showCoordinator("camera permission denied")
         }
     }
 

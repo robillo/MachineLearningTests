@@ -186,7 +186,7 @@ class FaceDetectActivity : MLActivity(), FaceDetectInterface {
         HEADER_TEXT_SCAN = "FACE DETECTION"
 
         setStatusBarColor()
-
+        setClickListeners()
     }
 
     override fun setStatusBarColor() {
