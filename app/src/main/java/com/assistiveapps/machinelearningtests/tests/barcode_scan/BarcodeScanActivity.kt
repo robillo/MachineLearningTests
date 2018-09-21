@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
 import com.assistiveapps.machinelearningtests.R
+import com.assistiveapps.machinelearningtests.tests.CommonInterface
 import com.assistiveapps.machinelearningtests.tests.MLActivity
 import com.assistiveapps.machinelearningtests.tests.MLDialogFragment
 import com.google.firebase.ml.vision.FirebaseVision
@@ -18,7 +19,11 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.common_test_ui.*
 import java.util.ArrayList
 
-class BarcodeScanActivity : MLActivity(), BarcodeScanInterface {
+class BarcodeScanActivity : MLActivity(), BarcodeScanInterface, CommonInterface {
+
+    override fun setHeaderTextAndColors() {
+        test_name.text = HEADER_TEXT_SCAN
+    }
 
     lateinit var dialogFragment: MLDialogFragment
 
@@ -42,7 +47,7 @@ class BarcodeScanActivity : MLActivity(), BarcodeScanInterface {
 
     override fun processBarcodeReaderResult(firebaseVisionBarcodes: MutableList<FirebaseVisionBarcode>?) {
         boundingBoxes = null
-        boundingBoxes = ArrayList()
+        boundingBoxes = ArrayList<Rect>()
 
         val builder = StringBuilder()
 
@@ -89,6 +94,7 @@ class BarcodeScanActivity : MLActivity(), BarcodeScanInterface {
 
         HEADER_TEXT_SCAN = "BARCODE SCANNING"
 
+        setHeaderTextAndColors()
         setStatusBarColor()
         setClickListeners()
     }

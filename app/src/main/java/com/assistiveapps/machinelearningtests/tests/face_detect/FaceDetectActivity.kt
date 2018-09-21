@@ -11,6 +11,7 @@ import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
 import com.assistiveapps.machinelearningtests.R
+import com.assistiveapps.machinelearningtests.tests.CommonInterface
 import com.assistiveapps.machinelearningtests.tests.MLActivity
 import com.assistiveapps.machinelearningtests.tests.MLDialogFragment
 import com.google.firebase.ml.vision.FirebaseVision
@@ -21,7 +22,11 @@ import kotlinx.android.synthetic.main.common_test_ui.*
 import java.text.DecimalFormat
 import java.util.ArrayList
 
-class FaceDetectActivity : MLActivity(), FaceDetectInterface {
+class FaceDetectActivity : MLActivity(), FaceDetectInterface, CommonInterface {
+
+    override fun setHeaderTextAndColors() {
+        test_name.text = HEADER_TEXT_SCAN
+    }
 
     lateinit var dialogFragment: MLDialogFragment
 
@@ -185,6 +190,7 @@ class FaceDetectActivity : MLActivity(), FaceDetectInterface {
 
         HEADER_TEXT_SCAN = "FACE DETECTION"
 
+        setHeaderTextAndColors()
         setStatusBarColor()
         setClickListeners()
     }

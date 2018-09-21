@@ -6,36 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.MainActivity"
-    android:background="@color/colorTextFour">
+    android:background="@color/colorTextThree">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:background="@color/colorTextFive"
-            tools:ignore="ContentDescription,SmallSp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:textSize="20sp"
-            android:paddingTop="8sp"
-            android:paddingBottom="8sp"
-            android:textColor="@color/colorTextTwo"
+            android:background="@color/disp_color_2"
+            android:textSize="18sp"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/white"
             android:text="@string/machine_learning_tests"
             android:gravity="center"
             android:id="@+id/test_name"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2sp"
-            android:background="@color/colorTextThree"
-            tools:ignore="ContentDescription,SmallSp" />
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -45,17 +33,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="10sp">
+                android:descendantFocusability="blocksDescendants">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12sp"
-                    android:layout_marginBottom="22sp"
+                    android:layout_marginBottom="5sp"
                     android:layout_marginLeft="20sp"
                     android:layout_marginRight="20sp"
                     app:cardCornerRadius="15sp"
-                    app:cardBackgroundColor="@color/primary_new_light"
+                    app:cardBackgroundColor="@color/colorTextOne"
                     app:cardElevation="0sp"
                     android:layout_gravity="center_horizontal">
 
@@ -69,7 +57,7 @@
                         android:layout_marginTop="5sp"
                         android:text="@string/choose_a_test_category"
                         android:textSize="15sp"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/colorTextFive"/>
 
                 </android.support.v7.widget.CardView>
 

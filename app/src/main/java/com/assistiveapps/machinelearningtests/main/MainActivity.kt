@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.WindowManager
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainInterface {
 
+    var color: Int = 0
     val list: MutableList<OptionsData> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +38,10 @@ class MainActivity : AppCompatActivity(), MainInterface {
     }
 
     override fun initialize() {
-        list.add(OptionsData("IMAGE LABELLING", 1))
-        list.add(OptionsData("FACE DETECTION", 2))
-        list.add(OptionsData("BARCODE SCANNING", 3))
-        list.add(OptionsData("TEXT SCANNING", 4))
+        list.add(OptionsData("IMAGE LABELLING", ""))
+        list.add(OptionsData("FACE DETECTION", ""))
+        list.add(OptionsData("BARCODE SCANNING", ""))
+        list.add(OptionsData("TEXT SCANNING", ""))
 
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = OptionsAdapter(list)
@@ -52,11 +54,13 @@ class MainActivity : AppCompatActivity(), MainInterface {
     override fun changeStatusBarColor() {
         val window = window ?: return
         val view = window.decorView ?: return
-        var flags = view.systemUiVisibility
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        view.systemUiVisibility = flags
+//        var flags = view.systemUiVisibility
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) flags = flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+//        view.systemUiVisibility = flags
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.disp_color_1))
+        }
     }
 }

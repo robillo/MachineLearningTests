@@ -36,7 +36,7 @@ abstract class MLActivity : FragmentActivity(), MLInterface {
     val CHOOSER_INTENT_TITLE = "Select Image"
     val REQUEST_CODE_PICK_IMAGE = 101
     val IMAGE_CONTENT_TYPE = "image/*"
-    protected var HEADER_TEXT_SCAN: String = "TEMP"
+    protected var HEADER_TEXT_SCAN: String = ""
     protected var bitmap: Bitmap? = null
     private var mCurrentPhotoPath: String? = null
 
@@ -215,6 +215,11 @@ abstract class MLActivity : FragmentActivity(), MLInterface {
     override fun hidePlaceholderViews() {
         place_holder_banner!!.visibility = View.GONE
         place_holder_gallery!!.visibility = View.GONE
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        overridePendingTransition(R.anim.slide_in_left_activity, R.anim.slide_out_right_activity)
     }
 
     override fun setDominantColorBackground() {

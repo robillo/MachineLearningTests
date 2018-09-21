@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.assistiveapps.machinelearningtests.R
+import com.assistiveapps.machinelearningtests.tests.CommonInterface
 import com.assistiveapps.machinelearningtests.tests.MLActivity
 import com.assistiveapps.machinelearningtests.tests.MLDialogFragment
 import com.google.firebase.ml.vision.FirebaseVision
@@ -12,7 +13,11 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import kotlinx.android.synthetic.main.common_test_ui.*
 
-class TextScanActivity : MLActivity(), TextScanInterface {
+class TextScanActivity : MLActivity(), TextScanInterface, CommonInterface {
+
+    override fun setHeaderTextAndColors() {
+        test_name.text = HEADER_TEXT_SCAN
+    }
 
     lateinit var dialogFragment: MLDialogFragment
 
@@ -20,6 +25,7 @@ class TextScanActivity : MLActivity(), TextScanInterface {
 
         HEADER_TEXT_SCAN = "TEXT SCANNING"
 
+        setHeaderTextAndColors()
         setStatusBarColor()
         setClickListeners()
     }

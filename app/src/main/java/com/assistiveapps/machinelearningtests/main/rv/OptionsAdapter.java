@@ -1,5 +1,6 @@
 package com.assistiveapps.machinelearningtests.main.rv;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -49,18 +50,22 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.OptionsH
                 switch (list.get(pos).getOption_name()) {
                     case "BARCODE SCANNING": {
                         context.startActivity(new Intent(context, BarcodeScanActivity.class));
+                        overrideTransition(context);
                         break;
                     }
                     case "TEXT SCANNING": {
                         context.startActivity(new Intent(context, TextScanActivity.class));
+                        overrideTransition(context);
                         break;
                     }
                     case "IMAGE LABELLING": {
                         context.startActivity(new Intent(context, ImageLabelActivity.class));
+                        overrideTransition(context);
                         break;
                     }
                     case "FACE DETECTION": {
                         context.startActivity(new Intent(context, FaceDetectActivity.class));
+                        overrideTransition(context);
                         break;
                     }
                 }
@@ -71,6 +76,14 @@ public class OptionsAdapter extends RecyclerView.Adapter<OptionsAdapter.OptionsH
     @Override
     public int getItemCount() {
         return list == null ? 0 : list.size();
+    }
+
+    private void overrideTransition(Context context) {
+        ((Activity) context)
+                .overridePendingTransition(
+                        R.anim.slide_in_right_activity,
+                        R.anim.slide_out_left_activity
+                );
     }
 
     class OptionsHolder extends RecyclerView.ViewHolder {
