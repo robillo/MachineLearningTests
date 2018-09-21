@@ -18,7 +18,7 @@ class TextScanActivity : MLActivity(), TextScanInterface {
 
     override fun setup() {
 
-        HEADER_TEXT_SCAN = "FACE DETECTION"
+        HEADER_TEXT_SCAN = "TEXT SCANNING"
 
         setStatusBarColor()
         setClickListeners()
