@@ -5,9 +5,12 @@ import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.WindowManager
 import com.assistiveapps.machinelearningtests.R
+import com.assistiveapps.machinelearningtests.main.rv.OptionsAdapter
+import com.assistiveapps.machinelearningtests.main.rv.OptionsData
 import com.assistiveapps.machinelearningtests.tests.barcode_scan.BarcodeScanActivity
 import com.assistiveapps.machinelearningtests.tests.face_detect.FaceDetectActivity
 import com.assistiveapps.machinelearningtests.tests.image_label.ImageLabelActivity
@@ -16,6 +19,8 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainInterface {
+
+    val list: MutableList<OptionsData> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,22 +32,17 @@ class MainActivity : AppCompatActivity(), MainInterface {
     }
 
     override fun setClickListeners() {
-        barcode_scanning_card.setOnClickListener {
-            startActivity(Intent(this, BarcodeScanActivity::class.java))
-        }
-        face_detection_card.setOnClickListener {
-            startActivity(Intent(this, FaceDetectActivity::class.java))
-        }
-        image_label_generator_card.setOnClickListener {
-            startActivity(Intent(this, ImageLabelActivity::class.java))
-        }
-        text_scanning_card.setOnClickListener {
-            startActivity(Intent(this, TextScanActivity::class.java))
-        }
+
     }
 
     override fun initialize() {
+        list.add(OptionsData("IMAGE LABELLING", 1))
+        list.add(OptionsData("FACE DETECTION", 2))
+        list.add(OptionsData("BARCODE SCANNING", 3))
+        list.add(OptionsData("TEXT SCANNING", 4))
 
+        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.adapter = OptionsAdapter(list)
     }
 
     override fun attachBaseContext(newBase: Context) {
