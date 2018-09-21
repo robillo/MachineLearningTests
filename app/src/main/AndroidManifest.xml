@@ -2,15 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.assistiveapps.machinelearningtests">
 
-    <!--<uses-permission-->
-        <!--android:name="android.permission.READ_EXTERNAL_STORAGE"-->
-        <!--android:required="false" />-->
-    <!--<uses-permission-->
-        <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
-        <!--android:required="false" />-->
+    <!-- <uses-permission -->
+    <!-- android:name="android.permission.READ_EXTERNAL_STORAGE" -->
+    <!-- android:required="false" /> -->
+    <!-- <uses-permission -->
+    <!-- android:name="android.permission.WRITE_EXTERNAL_STORAGE" -->
+    <!-- android:required="false" /> -->
 
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission
         android:name="android.permission.INTERNET"
         android:required="false" />
@@ -46,7 +45,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.assistiveapps.machinelearningtests.tests.face_detect.FaceDetectActivity"
+        <activity
+            android:name=".tests.face_detect.FaceDetectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".tests.barcode_scan.BarcodeScanActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".tests.image_label.ImageLabelActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".tests.text_scan.TextScanActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
